@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Typography, AppBar, Tab, Tabs, Link, Box } from "@mui/material";
+import { Router, Routes, Route, Navigate } from "react-router-dom";
+import SponsorView from "./Views/SponsorView";
+import HomeView from "./Views/HomeView";
+import { useState } from "react";
+import FAQView from "./Views/FAQView";
+import ContactView from "./Views/ContactView";
 
 function App() {
+  const [value, setValue] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<HomeView />} />
+      <Route path="/sponsors" element={<SponsorView />} />
+      <Route path="/faq" element={<FAQView />} />
+      <Route path="/contactus" element={<ContactView />} />
+    </Routes>
   );
 }
 
